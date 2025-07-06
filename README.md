@@ -182,6 +182,23 @@ While iterating on your configuration:
 - Create new agent types using the same configuration pattern
 - Debug configuration issues in LangGraph Studio
 
+### `summary_report_tool`
+
+Use this tool to condense conversation into a short structured report.
+
+```python
+await summary_report_tool(
+    "Please approve the purchase of new chairs for the office by next week."
+)
+```
+
+This returns a brief summary, e.g.:
+
+```
+- Request: approve purchase of new chairs
+- Deadline: next week
+```
+
 ## Documentation
 
 You can find the latest LangGraph documentation [here](https://github.com/langchain-ai/langgraph), including examples and references for configuration patterns.

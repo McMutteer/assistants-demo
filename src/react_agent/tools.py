@@ -12,6 +12,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
 from langchain_core.tools import tool
 from datetime import datetime
+from src.utils import load_chat_model, get_message_text
 
 @tool
 async def finance_research(ticker_symbol: str) -> Optional[list[dict[str, Any]]]:
@@ -67,6 +68,18 @@ async def acronym_tool(phrase: str) -> str:
     return "".join(letters).lower()
 
 
+@tool
+async def summary_report_tool(text: str) -> str:
+    """Generate a short structured summary of the input text."""
+    llm = load_chat_model("openai/gpt-4.1-mini")
+    prompt = (
+        "Please provide a concise structured report summarizing the following text:\n"
+        f"{text}\n"
+    )
+    message = await llm.ainvoke(prompt)
+    return get_message_text(message)
+
+
 def get_tools(selected_tools: list[str]) -> list[Callable[..., Any]]:
     """Convert a list of tool names to actual tool functions."""
     tools = []
@@ -81,5 +94,7 @@ def get_tools(selected_tools: list[str]) -> list[Callable[..., Any]]:
             tools.append(get_todays_date)
         elif tool == "acronym_tool":
             tools.append(acronym_tool)
+        elif tool == "summary_report_tool":
+            tools.append(summary_report_tool)
 
     return tools
