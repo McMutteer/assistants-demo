@@ -1,9 +1,12 @@
 {
-  "dependencies": ["."],
+  "dependencies": [
+    "."
+  ],
   "graphs": {
     "react_agent_no_config": "./src/react_agent/graph_without_config.py:make_graph",
     "react_agent": "./src/react_agent/graph.py:make_graph",
-    "supervisor_prebuilt": "./src/supervisor/supervisor_prebuilt.py:make_supervisor_graph"
+    "supervisor_prebuilt": "./src/supervisor/supervisor_prebuilt.py:make_supervisor_graph",
+    "two_node_graph": "./src/two_node_graph/graph.py:make_two_node_graph"
   },
   "env": ".env"
 }
