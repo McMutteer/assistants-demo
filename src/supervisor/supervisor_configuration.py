@@ -129,11 +129,11 @@ final content based on the requested format for the user, then return the final 
         {"__template_metadata__": {"kind": "llm"}},
     ] = Field(
         default="openai/gpt-4.1",
-        description="The name of the language model to use for the research sub-agent.",
+        description="The name of the language model to use for the writing sub-agent.",
         json_schema_extra={"langgraph_nodes": ["writing_agent"]}
     )
     writing_tools: list[Literal["finance_research", "advanced_research_tool", "basic_research_tool", "get_todays_date", "acronym_tool", "summary_report_tool"]] = Field(
         default = ["advanced_research_tool", "get_todays_date"],
-        description="The list of tools to make available to the general research sub-agent.",
+        description="The list of tools to make available to the writing sub-agent.",
         json_schema_extra={"langgraph_nodes": ["writing_agent"]}
     )
