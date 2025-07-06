@@ -18,8 +18,17 @@ async def make_graph(config: RunnableConfig):
 
     # get values from configuration
     llm = configurable.get("model", "openai/gpt-4.1")
-    selected_tools = configurable.get("selected_tools", ["get_todays_date"])
-    prompt = configurable.get("system_prompt", "You are a helpful assistant.")
+    selected_tools = configurable.get(
+        "selected_tools", ["get_todays_date", "summary_report_tool"]
+    )
+    prompt = configurable.get(
+        "system_prompt",
+        (
+            "Eres un asistente que atiende un negocio. "
+            "Cuando completes un pedido, utiliza la herramienta summary_report_tool "
+            "para generar un breve informe resumido. Responde siempre en español."
+        ),
+    )
     
     # specify the name for use in supervisor architecture
     name = configurable.get("name", "react_agent")

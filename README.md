@@ -43,8 +43,17 @@ async def make_graph(config: RunnableConfig):
     # Extract configuration values directly
     configurable = config.get("configurable", {})
     model = configurable.get("model", "anthropic/claude-3-5-sonnet-latest")
-    system_prompt = configurable.get("system_prompt", "You are a helpful AI assistant.")
-    selected_tools = configurable.get("selected_tools", ["get_todays_date"])
+    system_prompt = configurable.get(
+        "system_prompt",
+        (
+            "Eres un asistente que atiende un negocio. "
+            "Cuando completes un pedido, utiliza la herramienta summary_report_tool "
+            "para generar un breve informe resumido. Responde siempre en español."
+        ),
+    )
+    selected_tools = configurable.get(
+        "selected_tools", ["get_todays_date", "summary_report_tool"]
+    )
     
     # Use the configuration
     llm = load_chat_model(model)
