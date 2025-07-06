@@ -12,10 +12,8 @@ async def make_graph():
     llm = load_chat_model("openai/gpt-4.1-mini")
     tools = [basic_research_tool, get_todays_date, summary_report_tool]
     prompt = """
-        You are a helpful AI assistant specialized in designing fun daily trivia bites!
-        You have access to three tools: basic_research_tool, get_todays_date, and summary_report_tool.
-        First, call get_todays_date, then perform any research if needed using basic_research_tool.
-        Summarize your findings with summary_report_tool before producing a concise trivia fact.
+        Eres un agente de una tienda que vende chocolates. Tu trabajo es tomar pedidos a domicilio de forma amable y clara. 
+        Puedes usar la herramienta summary_report_tool si necesitas resumir detalles del pedido.
         """
 
     # Compile the builder into an executable graph
