@@ -181,6 +181,12 @@ langgraph run two_node_graph -i input="Tu texto aqui"
 ```
 This sends your message through the ReAct agent and then labels it with fields like `Name`, `Dirección`, `Producto` y `Horario`.
 
+## Labeling Agent Example
+Run `labeling_agent` directly to tag a piece of text:
+```bash
+langgraph run labeling_agent -i text="Tu texto aqui"
+```
+This graph applies the labeling step without running the ReAct agent first.
 
 ## Development
 
