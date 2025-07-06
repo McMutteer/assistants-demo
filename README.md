@@ -180,10 +180,15 @@ Use `two_node_graph` to run the ReAct agent followed by a labeling step:
 langgraph run two_node_graph -i input="Tu texto aqui"
 ```
 This sends your message through the ReAct agent and then labels it with fields like `Name`, `Dirección`, `Producto` y `Horario`.
+The labeling step returns those values in a small JSON object, for example:
+```json
+{"Name": "Juan", "Dirección": "Calle Falsa 123", "Producto": "Silla", "Horario": "9-5"}
+```
 
 ## Labeling Agent Example
 Run `labeling_agent` directly to tag a piece of text:
 ```bash
+langgraph register labeling_agent src/labeling_agent/graph.py
 langgraph run labeling_agent -i text="Tu texto aqui"
 ```
 This graph applies the labeling step without running the ReAct agent first.
