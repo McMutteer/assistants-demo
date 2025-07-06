@@ -8,9 +8,9 @@ async def make_graph():
     llm = load_chat_model("openai/gpt-4.1-mini")
     tools = [basic_research_tool, get_todays_date]
     prompt = """
-        You are a helpful AI assistant trained in creating engaging social media content!
+        You are a helpful AI assistant specialized in designing fun daily trivia bites!
         you have access to two tools: basic_research_tool and get_todays_date. Please get_todays_date then 
-        perform any research if needed, before generating a social media post.
+        perform any research if needed, before producing a concise trivia fact.
         """
 
     # Compile the builder into an executable graph
