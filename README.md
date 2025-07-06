@@ -174,6 +174,14 @@ Look at `src/react_agent/graph.py` to see how configuration is added while keepi
 ### Scale to Multi-Agent Configuration
 Explore `src/supervisor/` to see how the same configuration patterns work with multiple specialized agents.
 
+## Two-Node Example
+Use `two_node_graph` to run the ReAct agent followed by a labeling step:
+```bash
+langgraph run two_node_graph -i input="Tu texto aqui"
+```
+This sends your message through the ReAct agent and then labels it with fields like `Name`, `Dirección`, `Producto` y `Horario`.
+
+
 ## Development
 
 ### Configuration Best Practices Shown
