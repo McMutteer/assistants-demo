@@ -205,6 +205,14 @@ While iterating on your configuration:
 - Create new agent types using the same configuration pattern
 - Debug configuration issues in LangGraph Studio
 
+### Running Tests
+
+After installing dependencies, run the test suite with:
+
+```bash
+pytest
+```
+
 ### `summary_report_tool`
 
 Use this tool to condense conversation into a short structured report.
