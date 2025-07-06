@@ -27,7 +27,7 @@ class Configuration(BaseModel):
         "Should be in the form: provider/model-name."
     )
 
-    selected_tools: list[Literal["finance_research", "advanced_research_tool", "basic_research_tool", "get_todays_date", "acronym_tool"]] = Field(
+    selected_tools: list[Literal["finance_research", "advanced_research_tool", "basic_research_tool", "get_todays_date", "acronym_tool", "summary_report_tool"]] = Field(
         default = ["get_todays_date"],
         description="The list of tools to use for the agent's interactions. "
         "This list should contain the names of the tools to use."
