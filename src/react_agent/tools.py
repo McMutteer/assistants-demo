@@ -59,6 +59,14 @@ async def get_todays_date() -> str:
     return datetime.now().strftime("%Y-%m-%d")
 
 
+@tool
+async def acronym_tool(phrase: str) -> str:
+    """Return an acronym built from the words in the given phrase."""
+    words = phrase.split()
+    letters = [w[0] for w in words if w]
+    return "".join(letters).lower()
+
+
 def get_tools(selected_tools: list[str]) -> list[Callable[..., Any]]:
     """Convert a list of tool names to actual tool functions."""
     tools = []
@@ -71,5 +79,7 @@ def get_tools(selected_tools: list[str]) -> list[Callable[..., Any]]:
             tools.append(basic_research_tool)
         elif tool == "get_todays_date":
             tools.append(get_todays_date)
-    
+        elif tool == "acronym_tool":
+            tools.append(acronym_tool)
+
     return tools
